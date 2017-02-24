@@ -237,10 +237,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (tieBreak == true) {
             info = "tie break!";
-        } else if (player1WonTheMatch) {                                              //WORKS!
+        } else if (player1WonTheMatch) {
             info = "game. set. match - player 1";
             simpleChronometer.stop();
-        } else if (player2WonTheMatch) {                                            // WORKS!
+        } else if (player2WonTheMatch) {
             info = "game. set. match - player 2";
             simpleChronometer.stop();
         } else if (pointsPlayer1 == pointsPlayer2 && pointsPlayer1 == 3) info = "deuce!";
