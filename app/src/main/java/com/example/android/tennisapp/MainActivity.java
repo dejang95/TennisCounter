@@ -9,18 +9,18 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int pointsPlayer1 = 0;
-    int pointsPlayer2 = 0;
+    private int pointsPlayer1 = 0;
+    private int pointsPlayer2 = 0;
 
-    int gamesPlayer1 = 0;
-    int gamesPlayer2 = 0;
+    private int gamesPlayer1 = 0;
+    private int gamesPlayer2 = 0;
 
-    int setsPlayer1 = 0;
-    int setsPlayer2 = 0;
+    private int setsPlayer1 = 0;
+    private int setsPlayer2 = 0;
 
-    boolean tieBreak = false;
-    boolean player1WonTheMatch = false;
-    boolean player2WonTheMatch = false;
+    private boolean tieBreak = false;
+    private boolean player1Won = false;
+    private boolean player2Won = false;
 
     Chronometer simpleChronometer;
 
@@ -31,14 +31,13 @@ public class MainActivity extends AppCompatActivity {
 
         simpleChronometer = (Chronometer) findViewById(R.id.simpleChronometer);
     }
-
     // Add points, games and sets to Player 1
 
     public void addPointPlayer1(View v) {
 
         if (gamesPlayer1 == 6 && gamesPlayer2 == 6) tieBreak = true;
 
-        if (tieBreak == false && player1WonTheMatch == false && player2WonTheMatch == false) {
+        if (tieBreak == false && player1Won == false && player2Won == false) {
 
             if (pointsPlayer1 == 3 && pointsPlayer2 < pointsPlayer1) {
                 pointsPlayer1 = pointsPlayer2 = 0;
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (pointsPlayer1 == 3) displayPointsPlayer1(40);
                 else if (pointsPlayer1 == 4) displayAdvantagePlayer1("AD");
             }
-        } else if (player1WonTheMatch == false && player2WonTheMatch == false && tieBreak == true) {
+        } else if (player1Won == false && player2Won == false && tieBreak == true) {
             tieBreakMethod("Player1");
         }
 
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (gamesPlayer1 == 6 && gamesPlayer2 == 6) tieBreak = true;
 
-        if (tieBreak == false && player1WonTheMatch == false && player2WonTheMatch == false) {
+        if (tieBreak == false && player1Won == false && player2Won == false) {
 
             if (pointsPlayer2 == 3 && pointsPlayer1 < pointsPlayer2) {
                 pointsPlayer2 = pointsPlayer1 = 0;
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (pointsPlayer2 == 3) displayPointsPlayer2(40);
                 else if (pointsPlayer2 == 4) displayAdvantagePlayer2("AD");
             }
-        } else if (player1WonTheMatch == false && player2WonTheMatch == false && tieBreak == true) {
+        } else if (player1Won == false && player2Won == false && tieBreak == true) {
             detectImportantInfo();
             tieBreakMethod("Player2");
         }
@@ -160,8 +159,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkIfWonTheMatch() {
 
-        if (setsPlayer1 > setsPlayer2 && setsPlayer1 == 3) player1WonTheMatch = true;
-        else if (setsPlayer2 > setsPlayer1 && setsPlayer2 == 3) player2WonTheMatch = true;
+        if (setsPlayer1 > setsPlayer2 && setsPlayer1 == 3) player1Won = true;
+        else if (setsPlayer2 > setsPlayer1 && setsPlayer2 == 3) player2Won = true;
 
         detectImportantInfo();
     }
@@ -215,8 +214,8 @@ public class MainActivity extends AppCompatActivity {
     // ***** Start a new game (RESET SCORE - STARTS TIMER) *****
 
     public void startNewGame(View v) {
-        pointsPlayer1 = pointsPlayer2 = gamesPlayer1 = gamesPlayer2 = setsPlayer1 = setsPlayer2 =  0;
-        player1WonTheMatch = player2WonTheMatch = false;
+        pointsPlayer1 = pointsPlayer2 = gamesPlayer1 = gamesPlayer2 = setsPlayer1 = setsPlayer2 = 0;
+        player1Won = player2Won = false;
         displayPointsPlayer1(pointsPlayer1);
         displayPointsPlayer2(pointsPlayer2);
         displayGamesPlayer1(gamesPlayer1);
@@ -237,10 +236,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (tieBreak == true) {
             info = "tie break!";
-        } else if (player1WonTheMatch) {
+        } else if (player1Won) {
             info = "game. set. match - player 1";
             simpleChronometer.stop();
-        } else if (player2WonTheMatch) {
+        } else if (player2Won) {
             info = "game. set. match - player 2";
             simpleChronometer.stop();
         } else if (pointsPlayer1 == pointsPlayer2 && pointsPlayer1 == 3) info = "deuce!";
