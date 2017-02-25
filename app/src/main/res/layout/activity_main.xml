@@ -4,194 +4,201 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.tennisapp.MainActivity"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    tools:context="com.example.android.tennisapp.MainActivity">
 
-        <RelativeLayout
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/green">
+
+        <LinearLayout
+            android:id="@+id/LinearLayout1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/green">
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/LinearLayout1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/NamePlayer1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:text="Player 1"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:id="@+id/NamePlayer1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:gravity="center"
-                        android:paddingBottom="16dp"
-                        android:paddingTop="16dp"
-                        android:text="Player 1"
-                        android:textAllCaps="true"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/pointsPlayer1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:gravity="center"
-                        android:paddingBottom="24dp"
-                        android:text="0"
-                        android:textColor="@android:color/white"
-                        android:textSize="56sp" />
-
-                    <TextView
-                        android:id="@+id/gamesPlayer1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:paddingBottom="24dp"
-                        android:text="0"
-                        android:textColor="@android:color/white"
-                        android:textSize="34sp" />
-
-                    <TextView
-                        android:id="@+id/setsPlayer1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="0"
-                        android:textColor="@android:color/white"
-                        android:textSize="40sp" />
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="addPointPlayer1"
-                        android:text="Point won" />
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="#80ffffff"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/textview1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="30dp"
-                        android:padding="10dp"
-                        android:text="name"
-                        android:textAllCaps="true"
-                        android:textColor="@android:color/white" />
-
-                    <TextView
-                        android:id="@+id/textview2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/textview1"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="40dp"
-                        android:padding="10dp"
-                        android:text="points"
-                        android:textAllCaps="true"
-                        android:textColor="@android:color/white" />
-
-                    <TextView
-                        android:id="@+id/textview3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/textview2"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="40dp"
-                        android:padding="10dp"
-                        android:text="games"
-                        android:textAllCaps="true"
-                        android:textColor="@android:color/white" />
-
-                    <TextView
-                        android:id="@+id/textview4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/textview3"
-                        android:layout_centerHorizontal="true"
-                        android:padding="10dp"
-                        android:text="sets"
-                        android:textAllCaps="true"
-                        android:textColor="@android:color/white" />
-
-                </RelativeLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/pointsPlayer1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:paddingBottom="24dp"
+                    android:text="0"
+                    android:textColor="@android:color/white"
+                    android:textSize="56sp" />
 
-                    <TextView
-                        android:id="@+id/NamePlayer2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:gravity="center"
-                        android:paddingBottom="16dp"
-                        android:paddingTop="16dp"
-                        android:text="Player 2"
-                        android:textAllCaps="true"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/gamesPlayer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:paddingBottom="24dp"
+                    android:text="0"
+                    android:textColor="@android:color/white"
+                    android:textSize="34sp" />
 
-                    <TextView
-                        android:id="@+id/pointsPlayer2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:gravity="center"
-                        android:paddingBottom="24dp"
-                        android:text="0"
-                        android:textColor="@android:color/white"
-                        android:textSize="56sp" />
+                <TextView
+                    android:id="@+id/setsPlayer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@android:color/white"
+                    android:textSize="40sp" />
 
-                    <TextView
-                        android:id="@+id/gamesPlayer2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:paddingBottom="24dp"
-                        android:text="0"
-                        android:textColor="@android:color/white"
-                        android:textSize="34sp" />
-
-                    <TextView
-                        android:id="@+id/setsPlayer2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="0"
-                        android:textColor="@android:color/white"
-                        android:textSize="40sp" />
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="addPointPlayer2"
-                        android:text="Point won" />
-
-                </LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="addPointPlayer1"
+                    android:text="Point won" />
 
             </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="#80ffffff"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textview1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="30dp"
+                    android:padding="10dp"
+                    android:text="name"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textview2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="40dp"
+                    android:padding="10dp"
+                    android:text="points"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textview3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="40dp"
+                    android:padding="10dp"
+                    android:text="games"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textview4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview3"
+                    android:layout_centerHorizontal="true"
+                    android:padding="10dp"
+                    android:text="sets"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/NamePlayer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="16dp"
+                    android:text="Player 2"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/pointsPlayer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:paddingBottom="24dp"
+                    android:text="0"
+                    android:textColor="@android:color/white"
+                    android:textSize="56sp" />
+
+                <TextView
+                    android:id="@+id/gamesPlayer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:paddingBottom="24dp"
+                    android:text="0"
+                    android:textColor="@android:color/white"
+                    android:textSize="34sp" />
+
+                <TextView
+                    android:id="@+id/setsPlayer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@android:color/white"
+                    android:textSize="40sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="addPointPlayer2"
+                    android:text="Point won" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/LinearLayout1"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/importantNotification"
@@ -210,12 +217,34 @@
                 android:id="@+id/tennisPlayers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
                 android:layout_above="@+id/NewGame"
                 android:layout_below="@+id/importantNotification"
+                android:adjustViewBounds="true"
                 android:scaleType="fitStart"
-                android:src="@drawable/tennis_players"
-                />
+                android:src="@drawable/tennis_players" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/simpleChronometer"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="match duration"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white" />
+
+            <Chronometer
+                android:id="@+id/simpleChronometer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/NewGame"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/NewGame"
@@ -225,26 +254,7 @@
                 android:onClick="startNewGame"
                 android:text="new game" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/simpleChronometer"
-                android:gravity="center"
-                android:text="match duration"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white" />
-
-            <Chronometer
-                android:id="@+id/simpleChronometer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:layout_above="@+id/NewGame"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-        </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
+
