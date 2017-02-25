@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     private int setsPlayer1 = 0;
     private int setsPlayer2 = 0;
+    private int oldSetsPlayer1 = 0;
+    private int oldSetsPlayer2 = 0;
 
     private boolean tieBreak = false;
     private boolean player1Won = false;
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         detectImportantInfo();
+        if(checkIfWonTheSet("player1")) displayHasWonTheSet("Player 1 has won the set!");
+        oldSetsPlayer1 = setsPlayer1;
     }
 
     public void addGamesPlayer1() {
@@ -92,6 +96,18 @@ public class MainActivity extends AppCompatActivity {
             tieBreak = true;
         }
         checkIfWonTheMatch();
+    }
+
+    public Boolean checkIfWonTheSet (String player) {
+
+        if (player == "player1" && oldSetsPlayer1 < setsPlayer1) {
+            return true;
+        }
+
+        else if (player == "player2" && oldSetsPlayer2 < setsPlayer2) {
+            return true;
+        }
+        else return false;
     }
 
     // Add points, games and sets to Player 2
@@ -128,7 +144,10 @@ public class MainActivity extends AppCompatActivity {
             detectImportantInfo();
             tieBreakMethod("Player2");
         }
+
         detectImportantInfo();
+        if(checkIfWonTheSet("player2")) displayHasWonTheSet("player 2 has won the set!");
+        oldSetsPlayer2 = setsPlayer2;
     }
 
     public void addGamesPlayer2() {
@@ -214,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
     // ***** Start a new game (RESET SCORE - STARTS TIMER) *****
 
     public void startNewGame(View v) {
-        pointsPlayer1 = pointsPlayer2 = gamesPlayer1 = gamesPlayer2 = setsPlayer1 = setsPlayer2 = 0;
+        pointsPlayer1 = pointsPlayer2 = gamesPlayer1 = gamesPlayer2 = setsPlayer1 = setsPlayer2 =  oldSetsPlayer1 = oldSetsPlayer2 = 0;
         player1Won = player2Won = false;
         displayPointsPlayer1(pointsPlayer1);
         displayPointsPlayer2(pointsPlayer2);
@@ -242,7 +261,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (player2Won) {
             info = "game. set. match - player 2";
             simpleChronometer.stop();
-        } else if (pointsPlayer1 == pointsPlayer2 && pointsPlayer1 == 3) info = "deuce!";
+        } else if (pointsPlayer1 == pointsPlayer2 && pointsPlayer1 == 3) {
+            info = "deuce!";
+        }
 
         displayImportantInfo(info);
     }
@@ -312,6 +333,11 @@ public class MainActivity extends AppCompatActivity {
     public void displayImportantInfo(String info) {
         TextView infoView = (TextView) findViewById(R.id.importantNotification);
         infoView.setText(String.valueOf(info));
+    }
+
+    public void displayHasWonTheSet(String player) {
+        TextView textView = (TextView) findViewById(R.id.importantNotification);
+        textView.setText(String.valueOf(player));
     }
 
 }
