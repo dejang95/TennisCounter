@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (gamesPlayer1 == 6 && gamesPlayer2 == 6) tieBreak = true;
 
-        if (tieBreak == false && player1Won == false && player2Won == false) {
+        if (!tieBreak && !player1Won && !player2Won) {
 
             if (pointsPlayer1 == 3 && pointsPlayer2 < pointsPlayer1) {
                 pointsPlayer1 = pointsPlayer2 = 0;
@@ -63,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 else if (pointsPlayer1 == 3) displayPointsPlayer1(40);
                 else if (pointsPlayer1 == 4) displayAdvantagePlayer1("AD");
             }
-        } else if (player1Won == false && player2Won == false && tieBreak == true) {
+        } else if (!player1Won && !player2Won && tieBreak) {
             tieBreakMethod("Player1");
         }
 
         detectImportantInfo();
-        if(checkIfWonTheSet("player1")) displayHasWonTheSet("Player 1 has won the set!");
+        if(!player1Won && checkIfWonTheSet("player1")) displayImportantInfo("Player 1 has won the set!");
         oldSetsPlayer1 = setsPlayer1;
     }
 
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (gamesPlayer1 == 6 && gamesPlayer2 == 6) tieBreak = true;
 
-        if (tieBreak == false && player1Won == false && player2Won == false) {
+        if (!tieBreak && !player1Won && !player2Won) {
 
             if (pointsPlayer2 == 3 && pointsPlayer1 < pointsPlayer2) {
                 pointsPlayer2 = pointsPlayer1 = 0;
@@ -140,13 +140,13 @@ public class MainActivity extends AppCompatActivity {
                 else if (pointsPlayer2 == 3) displayPointsPlayer2(40);
                 else if (pointsPlayer2 == 4) displayAdvantagePlayer2("AD");
             }
-        } else if (player1Won == false && player2Won == false && tieBreak == true) {
+        } else if (!player1Won && !player2Won && tieBreak) {
             detectImportantInfo();
             tieBreakMethod("Player2");
         }
 
         detectImportantInfo();
-        if(checkIfWonTheSet("player2")) displayHasWonTheSet("player 2 has won the set!");
+        if(!player2Won && checkIfWonTheSet("player2")) displayImportantInfo("player 2 has won the set!");
         oldSetsPlayer2 = setsPlayer2;
     }
 
@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
 
         String info = "";
 
-        if (tieBreak == true) {
+        if (tieBreak) {
             info = "tie break!";
         } else if (player1Won) {
             info = "game. set. match - player 1";
@@ -264,7 +264,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (pointsPlayer1 == pointsPlayer2 && pointsPlayer1 == 3) {
             info = "deuce!";
         }
-
         displayImportantInfo(info);
     }
 
@@ -328,16 +327,10 @@ public class MainActivity extends AppCompatActivity {
         scoreView.setText(String.valueOf(score));
     }
 
-    // Displays Important notifications/info like, who won the match and so on...
+    // Displays Important notifications/info like, who won the match, set and so on..
 
     public void displayImportantInfo(String info) {
         TextView infoView = (TextView) findViewById(R.id.importantNotification);
         infoView.setText(String.valueOf(info));
     }
-
-    public void displayHasWonTheSet(String player) {
-        TextView textView = (TextView) findViewById(R.id.importantNotification);
-        textView.setText(String.valueOf(player));
-    }
-
 }
